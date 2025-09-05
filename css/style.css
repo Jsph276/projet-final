@@ -35,7 +35,7 @@ section {
 .main-navbar.navbar-sticky {
     position: fixed;
     top: 0;
-    background-color: rgba(187, 191, 196, 0.822);
+    background-color: rgba(146, 146, 146, 0.822);
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
     padding: 10px 0;
@@ -539,7 +539,7 @@ a:hover {
 }
 
 /* Preload des fonts importantes */
-@font-face {
+/* @font-face {
     font-family: 'Segoe UI';
     font-display: swap;
-}
+} */
