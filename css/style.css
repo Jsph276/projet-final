@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+
 /* Variables CSS*/
 :root {
     --primary-color: #0d6efd;
@@ -7,59 +9,67 @@
     --light-bg: #f8f9fa;
     --dark-bg: #212529;
     --transition: all 0.3s ease;
+    --overlay-dark: rgba(0,0,0,0.5);
+    --overlay-darker: rgba(0,0,0,0.9);
+}
+
+/* Styles de base */
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Outfit', sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: var(--light-bg);
 }
 
-/* Scroll comportement smooth */
-html {
-    scroll-behavior: smooth;
-}
-
 /* Espacement des sections */
 section {
-    scroll-margin-top: 80px; /* Compense la navbar sticky */
+    scroll-margin-top: 80px;
+}
+
+/* Bouton retour en haut */
+.btn-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    padding: 12px 16px;
+    font-size: 20px;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+.btn-top:hover {
+    background-color: var(--light-bg);
+    transform: translateY(-3px);
+}
+
+/* Styles des sections pleine hauteur */
+.pi,
+.pi2 {
+    min-height: 65vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
 }
 
 .pi {
-    min-height: 60vh;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url('../image/hero1.jpg') no-repeat center/cover;
+    background-image: linear-gradient(var(--overlay-dark), var(--overlay-darker)), url('../image/hero1.jpg');
 }
 
-/* Navbar sticky lors du scroll */
-.main-navbar.navbar-sticky {
-    position: fixed;
-    top: 0;
-    background-color: rgba(146, 146, 146, 0.822);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
-    padding: 10px 0;
-    z-index: 1000;
-    transition: all 0.3s ease;
+.pi2 {
+    background-image: linear-gradient(var(--overlay-dark), var(--overlay-darker)), url('../image/hero9.jpg');
 }
 
-.main-navbar {
-    position: absolute;
-    top: 41px;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    transition: all 0.3s ease;
-    background-color: transparent;
-    padding: 15px 0;
-}
-
-/* Espacement des sections */
-section {
-    scroll-margin-top: 80px; /* Compense la navbar sticky */
-}
-
-/* navigation */
+/* Navigation */
 .navbar-brand {
     font-size: 1.5rem;
     transition: var(--transition);
@@ -69,6 +79,7 @@ section {
     color: var(--primary-color);
 }
 
+/* Navigation hover effects */
 .navbar-brand:hover {
     transform: scale(1.05);
 }
@@ -89,52 +100,36 @@ section {
     font-weight: 600;
 }
 
-/* section hero */
+/* Section hero */
 .hero-wrapper {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url('../image/hero5.jpg') no-repeat center/cover;
+    background-image: linear-gradient(var(--overlay-dark), var(--overlay-darker)), url('../image/hero5.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     position: relative;
-    min-height: 100vh;
+    min-height: 70vh;
 }
 
-.hero-section {
-    position: relative;
-    padding: 80px 0;
-    padding-top: 200px; /* Plus d'espace pour la navbar */
+/* Espacements galerie */
+.gal {
+    padding-top: 85px;
 }
 
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
+.gal1 {
+    padding-top: 40px;
 }
 
-.hero-wrapper2 {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url('../image/hero5.jpg') no-repeat center/cover;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    position: relative;
-    min-height: 50vh;
-}
-
+/* Structure hero */
+.hero-section,
 .hero-section2 {
     position: relative;
-    padding: 80px 0;
-    padding-top: 200px; /* Plus d'espace pour la navbar */
+    padding: 80px 0 80px;
+    padding-top: 200px;
 }
 
 .hero-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     z-index: 1;
 }
 
@@ -143,6 +138,7 @@ section {
     z-index: 2;
 }
 
+/* Contenu hero */
 .hero-content {
     padding: 50px 0;
 }
@@ -164,6 +160,7 @@ section {
     letter-spacing: 1px;
 }
 
+/* CTA styles */
 .hero-cta {
     display: inline-block;
     color: white;
@@ -198,6 +195,7 @@ section {
     transform: scaleX(1.2);
 }
 
+/* Boutons hero */
 .hero-section .btn {
     transition: var(--transition);
     border-width: 2px;
@@ -208,7 +206,7 @@ section {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* cartes de services */
+/* Cartes de services */
 .service-card {
     transition: var(--transition);
     border: none;
@@ -218,7 +216,7 @@ section {
 
 .service-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 }
 
 .service-icon i {
@@ -231,19 +229,21 @@ section {
     padding: 0.5em 0.8em;
 }
 
-/* section contact */
+/* Formulaires */
 .contact-info .bi {
     font-size: 1.2rem;
     width: 24px;
 }
 
-.form-control, .form-select {
+.form-control,
+.form-select {
     border-radius: 10px;
     border: 1px solid #e9ecef;
     transition: var(--transition);
 }
 
-.form-control:focus, .form-select:focus {
+.form-control:focus,
+.form-select:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
 }
@@ -499,7 +499,7 @@ footer {
 
 /* Couleurs de texte personnalisées */
 .text-white-50 {
-    color: rgba(255, 255, 255, 0.5) !important;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 /* Bordures arrondies */

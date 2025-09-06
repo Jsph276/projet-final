@@ -1,4 +1,9 @@
-/* Styles pour la navbar transparente */
+/* Variables communes */
+:root {
+    --navbar-transition: all 0.3s ease;
+    --navbar-hover-color: #0d6efd;
+}
+
 /* Barre supérieure */
 .top-bar {
     background-color: transparent;
@@ -13,6 +18,7 @@
     transition: opacity 0.3s ease;
 }
 
+/* Éléments sociaux et contact */
 .social-links-top {
     display: flex;
     gap: 15px;
@@ -21,12 +27,13 @@
 .social-link {
     color: white;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: var(--navbar-transition);
     font-size: 1rem;
 }
 
-.social-link:hover {
-    color: #0d6efd;
+.social-link:hover,
+.nav-action-link:hover {
+    color: var(--navbar-hover-color);
     transform: scale(1.1);
 }
 
@@ -59,47 +66,72 @@
     transition: opacity 0.3s ease;
 }
 
-/* Barre principale de navigation */
+/* Styles de base pour les navbars */
 .main-navbar {
     background-color: transparent;
     padding: 15px 0;
-    transition: all 0.3s ease;
+    transition: var(--navbar-transition);
     position: absolute;
-    top: 41px;
     left: 0;
     right: 0;
     z-index: 1000;
 }
 
-.main-navbar .navbar-brand {
+.main-navbar2 {
+    background-color: transparent;
+    padding: 15px 0;
+    transition: var(--navbar-transition);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(6px); /* optionnel : effet verre dépoli */
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.main-navbar {
+    top: 41px;
+}
+
+.main-navbar2 {
+    top: 0;
+}
+
+/* Styles communs pour les éléments de navbar */
+.main-navbar .navbar-brand,
+.main-navbar2 .navbar-brand {
     font-size: 1.8rem;
     color: white;
     font-weight: 700;
     letter-spacing: 1px;
 }
 
-.main-navbar .navbar-nav .nav-link {
+.main-navbar .navbar-nav .nav-link,
+.main-navbar2 .navbar-nav .nav-link {
     color: white;
     font-weight: 500;
     font-size: 0.9rem;
     letter-spacing: 0.5px;
     padding: 8px 15px;
     margin: 0 2px;
-    transition: all 0.3s ease;
+    transition: var(--navbar-transition);
     position: relative;
 }
 
-.main-navbar .navbar-nav .nav-link:hover {
-    color: #0d6efd;
+.main-navbar .navbar-nav .nav-link:hover,
+.main-navbar2 .navbar-nav .nav-link:hover {
+    color: var(--navbar-hover-color);
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 4px;
 }
 
-.main-navbar .navbar-nav .nav-link.active {
-    color: #0d6efd;
+.main-navbar .navbar-nav .nav-link.active,
+.main-navbar2 .navbar-nav .nav-link.active {
+    color: var(--navbar-hover-color);
     font-weight: 600;
 }
 
+/* Actions de la navbar */
 .navbar-actions {
     display: flex;
     gap: 15px;
@@ -109,22 +141,13 @@
     color: white;
     text-decoration: none;
     font-size: 1.1rem;
-    transition: all 0.3s ease;
+    transition: var(--navbar-transition);
     padding: 5px;
-}
-
-.nav-action-link:hover {
-    color: #0d6efd;
-    transform: scale(1.1);
 }
 
 /* Responsive pour la navbar */
 @media (max-width: 768px) {
-    .top-bar {
-        padding: 5px 0;
-        font-size: 0.8rem;
-    }
-    
+
     .social-links-top {
         gap: 10px;
     }
@@ -136,6 +159,7 @@
     
     .main-navbar {
         padding: 10px 0;
+        top: 0;
     }
     
     .main-navbar .navbar-brand {
