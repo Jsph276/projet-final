@@ -47,7 +47,8 @@ section {
 }
 
 .btn-top:hover {
-    background-color: var(--light-bg);
+    background-color: transparent;
+    backdrop-filter: blur(6px); /* optionnel : effet verre dépoli */
     transform: translateY(-3px);
 }
 
