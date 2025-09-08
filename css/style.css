@@ -2,7 +2,7 @@
 
 /* Variables CSS*/
 :root {
-    --primary-color: #0d6efd;
+    --primary-color: #e70017fa;
     --secondary-color: #6c757d;
     --success-color: #198754;
     --warning-color: #ffc107;
@@ -30,6 +30,30 @@ section {
     scroll-margin-top: 80px;
 }
 
+.bi1 {
+    color: var(--primary-color);
+}
+
+.btn1 {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+.btn1:hover {
+    background-color: transparent;
+    color: white;
+    background-color: #9b0000;
+    transform: translateY(-3px);
+}
+
 /* Bouton retour en haut */
 .btn-top {
     position: fixed;
@@ -48,6 +72,7 @@ section {
 
 .btn-top:hover {
     background-color: transparent;
+    color: var(--primary-color);
     backdrop-filter: blur(6px); /* optionnel : effet verre dépoli */
     transform: translateY(-3px);
 }
@@ -92,7 +117,7 @@ section {
 }
 
 .navbar-nav .nav-link:hover {
-    color: var(--primary-color);
+    filter: brightness(120%);
     transform: translateY(-2px);
 }
 
@@ -103,7 +128,7 @@ section {
 
 /* Section hero */
 .hero-wrapper {
-    background-image: linear-gradient(var(--overlay-dark), var(--overlay-darker)), url('../image/hero5.jpg');
+    background-image: linear-gradient(var(--overlay-dark), var(--overlay-darker)), url('../image/hero2.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -223,6 +248,7 @@ section {
 .service-icon i {
     font-size: 3rem;
     display: block;
+    color: var(--primary-color);
 }
 
 .service-card .badge {
@@ -246,7 +272,11 @@ section {
 .form-control:focus,
 .form-select:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    box-shadow: 0 0 0 0.2rem rgba(255, 0, 25, 0.25);
+}
+
+.text-decoration-none:hover {
+    color: var(--primary-color);
 }
 
 /* galerie */
@@ -300,11 +330,24 @@ section {
 /* Filtres galerie */
 .btn-group .btn {
     transition: var(--transition);
+    border-color: var(--primary-color);
+}
+
+.btn-group .btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
 }
 
 .btn-outline-primary.active {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
+}
+
+.cta {
+    background: var(--primary-color);
+    text-align: center;
+    border-radius: 15px;
 }
 
 /* cartes tarifs */
@@ -518,9 +561,13 @@ footer {
     outline-offset: 2px;
 }
 
+.lien:hover {
+    text-decoration: underline;
+}
+
 /* Contraste amélioré pour les liens */
 a {
-    color: var(--primary-color);
+    color: #0000008e;
 }
 
 a:hover {
