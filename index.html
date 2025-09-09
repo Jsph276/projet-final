@@ -514,5 +514,33 @@
 
     <!-- Bootstrap 5 JS -->
     <script src="bootstrap-5.3.7-dist/js/bootstrap.js"></script>
+
+    <!-- Script pour la navbar sticky -->
+    <script>
+        const navbar = document.querySelector('.main-navbar');
+        const topBar = document.querySelector('.top-bar');
+        const navbarDivider = document.querySelector('.navbar-divider');
+        
+        function updateNavbar() {
+            const navbarTop = navbar.offsetTop;
+            const currentScroll = window.pageYOffset;
+            const threshold = topBar ? topBar.offsetHeight : 0;
+
+            if (currentScroll >= threshold) {
+                navbar.classList.add('sticky');
+                if (topBar) topBar.style.opacity = '0';
+                if (navbarDivider) navbarDivider.style.opacity = '0';
+            } else {
+                navbar.classList.remove('sticky');
+                if (topBar) topBar.style.opacity = '1';
+                if (navbarDivider) navbarDivider.style.opacity = '1';
+            }
+        }
+
+        window.addEventListener('scroll', updateNavbar);
+        window.addEventListener('resize', updateNavbar);
+        // Exécuter au chargement
+        updateNavbar();
+    </script>
 </body>
 </html>
